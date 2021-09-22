@@ -19,5 +19,5 @@ app.use('/products/', indexRoutes);
 
 //inicio servidor
 app.listen(app.get('port'), () => {
-  console.log(`listening at http://localhost:${port}`);
+  console.log(`listening`);
 });
