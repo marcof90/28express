@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const app = express();
+const cors = require('cors')
 const indexRoutes = require('./routes/index');
 
 //configuraciones
@@ -13,9 +14,9 @@ mongoose.connect('mongodb+srv://root:toor@cluster0.al2bt.mongodb.net/Cluster0?re
 //middlewares
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
-
+app.use(cors())
 //rutas
-app.use('/products/', indexRoutes);
+app.use('/', indexRoutes);
 
 //inicio servidor
 app.listen(app.get('port'), () => {
